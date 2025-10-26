@@ -1,0 +1,11 @@
+
+
+data/*.csv
+logs/*.log
+temp/*.tmp
+.DS_Store
+node_modules/
+.env
+.vscode/
+.idea/
+*.bak
