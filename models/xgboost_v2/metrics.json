@@ -1,0 +1,71 @@
+{
+  "model_name": "XGBoost_v2_Binary",
+  "timestamp": "2025-10-29T14:04:41.313941",
+  "dataset_version": "processed_v3",
+  "target": "BinaryIncidentGrade (0=Non-TP, 1=TP)",
+  "test_accuracy": 0.8246096041464013,
+  "test_precision": 0.5657286745236488,
+  "test_recall": 0.7597615395342351,
+  "test_f1_score": 0.6485432848257596,
+  "test_roc_auc": 0.8988181657065559,
+  "cv_roc_auc_mean": 0.8991227927737899,
+  "cv_roc_auc_std": 0.0011312973808856237,
+  "n_features": 43,
+  "n_train_samples": 314230,
+  "n_test_samples": 134671,
+  "class_distribution_train": {
+    "class_0": 247302,
+    "class_1": 66928
+  },
+  "hyperparameters": {
+    "objective": "binary:logistic",
+    "max_depth": 6,
+    "learning_rate": 0.1,
+    "n_estimators": 200,
+    "subsample": 0.8,
+    "colsample_bytree": 0.8,
+    "scale_pos_weight": 3.695045421945972
+  },
+  "top_10_features": [
+    {
+      "Feature": "T1078_sum",
+      "Importance": 0.25809288024902344
+    },
+    {
+      "Feature": "SmoothedRisk_avg",
+      "Importance": 0.22309178113937378
+    },
+    {
+      "Feature": "EvidenceRole_Related_sum",
+      "Importance": 0.05245363712310791
+    },
+    {
+      "Feature": "GeoLoc_freq_avg",
+      "Importance": 0.04685565456748009
+    },
+    {
+      "Feature": "LastVerdict_freq_mean",
+      "Importance": 0.04507865756750107
+    },
+    {
+      "Feature": "EntityType_freq_mean",
+      "Importance": 0.03282517194747925
+    },
+    {
+      "Feature": "Roles_freq_mean",
+      "Importance": 0.028504034504294395
+    },
+    {
+      "Feature": "Category_freq_mean",
+      "Importance": 0.021543636918067932
+    },
+    {
+      "Feature": "SuspicionLevel_Missing_sum",
+      "Importance": 0.018517162650823593
+    },
+    {
+      "Feature": "Duration_seconds",
+      "Importance": 0.015306692570447922
+    }
+  ]
+}

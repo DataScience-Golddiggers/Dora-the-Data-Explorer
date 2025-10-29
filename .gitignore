@@ -1,6 +1,8 @@
 
 
 data/*.csv
+data/processed/**/*.csv
+data/processed_v3/**/*.csv
 logs/*.log
 temp/*.tmp
 .DS_Store
@@ -9,3 +11,8 @@ node_modules/
 .vscode/
 .idea/
 *.bak
+
+# Model files larger than 100MB
+models/**/*.pkl
+models/**/*.h5
+models/**/*.hdf5
