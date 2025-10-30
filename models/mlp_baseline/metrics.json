@@ -1,0 +1,96 @@
+{
+  "model_name": "MLP_Baseline",
+  "timestamp": "2025-10-30T15:20:09.073977",
+  "dataset_version": "processed_v3_balanced",
+  "class_balancing": "Class weights in loss function",
+  "architecture": {
+    "input_dim": 43,
+    "hidden_layers": [
+      128,
+      64,
+      32
+    ],
+    "dropout": 0.3,
+    "activation": "ReLU",
+    "output_activation": "Sigmoid"
+  },
+  "training": {
+    "n_epochs": 30,
+    "batch_size": 512,
+    "optimizer": "Adam",
+    "learning_rate": 0.005,
+    "loss_function": "BCEWithLogitsLoss",
+    "pos_weight": 1.7168457508087158,
+    "device": "mps"
+  },
+  "data": {
+    "n_train_samples": 348918,
+    "n_test_samples": 149537,
+    "n_features": 43,
+    "class_distribution_train": {
+      "class_0": 247302,
+      "class_1": 101616
+    }
+  },
+  "test_metrics": {
+    "accuracy": 0.8732086373272167,
+    "precision": 0.8301380162182482,
+    "recall": 0.7098966704936854,
+    "f1_score": 0.765323299336568,
+    "roc_auc": 0.9191941455853223
+  },
+  "per_class_metrics": {
+    "class_0_non_tp": {
+      "precision": 0.8874927645932589,
+      "recall": 0.9403134346665157,
+      "f1_score": 0.9131398832702651
+    },
+    "class_1_tp": {
+      "precision": 0.8301380162182482,
+      "recall": 0.7098966704936854,
+      "f1_score": 0.765323299336568
+    }
+  },
+  "confusion_matrix": {
+    "true_negatives": 99661,
+    "false_positives": 6326,
+    "false_negatives": 12634,
+    "true_positives": 30916
+  },
+  "training_history": {
+    "final_loss": 0.41454016699119745,
+    "min_loss": 0.41454016699119745,
+    "loss_history": [
+      0.5527307870101369,
+      0.5223697352706512,
+      0.5084673422784749,
+      0.4705295021757702,
+      0.4496420294133799,
+      0.4402535451996711,
+      0.44256689301159374,
+      0.4376775674805963,
+      0.43471160863152,
+      0.42854991874212395,
+      0.4288810648002233,
+      0.4305288901776512,
+      0.42842724154596806,
+      0.42974202391688776,
+      0.42359084170584804,
+      0.4205208082527709,
+      0.41835391643809433,
+      0.41809507238725063,
+      0.4184470702388769,
+      0.41870161222397756,
+      0.41570841256649266,
+      0.4155072107954808,
+      0.4168306317322415,
+      0.41767542164696275,
+      0.4148015077949619,
+      0.4191381016697003,
+      0.41771957492373907,
+      0.415441771712471,
+      0.41567467756110554,
+      0.41454016699119745
+    ]
+  }
+}

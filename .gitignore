@@ -3,6 +3,7 @@
 data/*.csv
 data/processed/**/*.csv
 data/processed_v3/**/*.csv
+data/processed_v3_balanced/**/*.csv
 logs/*.log
 temp/*.tmp
 .DS_Store
@@ -12,7 +13,11 @@ node_modules/
 .idea/
 *.bak
 
-# Model files larger than 100MB
+# Model files (trainati)
 models/**/*.pkl
 models/**/*.h5
 models/**/*.hdf5
+models/**/*.pth
+models/**/*.json
+!models/**/metrics.json
+!models/**/threshold_config.json
