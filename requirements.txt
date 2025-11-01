@@ -11,8 +11,7 @@ xgboost>=1.7.0
 # Random Forest is included in scikit-learn
 
 # Deep Learning (for MLP)
-torch>=2.0.0
-torchvision>=0.15.0
+torch>=2.9.0
 
 # Data Visualization
 matplotlib>=3.6.0
@@ -22,13 +21,13 @@ seaborn>=0.12.0
 imbalanced-learn>=0.10.0  # For SMOTE and other resampling techniques
 
 # Utilities
-tqdm>=4.64.0  # Progress bars
+#tqdm>=4.64.0  # Progress bars
 joblib>=1.2.0  # Parallel processing
 
 # Jupyter (for notebook development)
-jupyter>=1.0.0
+#jupyter>=1.0.0
 ipykernel>=6.0.0
-ipywidgets>=8.0.0
+#ipywidgets>=8.0.0
 
 # Optional: For model interpretability
 # shap>=0.41.0  # SHAP values for model interpretation
