@@ -1,0 +1,87 @@
+{
+  "model_name": "DecisionTree",
+  "timestamp": "2025-11-01T22:49:52.414760",
+  "dataset_version": "processed_v3",
+  "test_accuracy": 0.8711021352574948,
+  "test_precision": 0.794978977811262,
+  "test_recall": 0.751113662456946,
+  "test_f1_score": 0.7724240527999812,
+  "test_roc_auc": 0.9223941235259915,
+  "n_features": 43,
+  "n_train_samples": 304848,
+  "n_test_samples": 149537,
+  "tree_depth": 10,
+  "n_leaves": 366,
+  "class_distribution_train": {
+    "class_0": 152424,
+    "class_1": 152424
+  },
+  "per_class_metrics": {
+    "class_0_non_tp": {
+      "precision": 0.9,
+      "recall": 0.9204053327294857,
+      "f1_score": 0.9100883023831847
+    },
+    "class_1_tp": {
+      "precision": 0.794978977811262,
+      "recall": 0.751113662456946,
+      "f1_score": 0.7724240527999812
+    }
+  },
+  "confusion_matrix": {
+    "true_negatives": 97551,
+    "false_positives": 8436,
+    "false_negatives": 10839,
+    "true_positives": 32711
+  },
+  "hyperparameters": {
+    "max_depth": 10,
+    "min_samples_split": 100,
+    "min_samples_leaf": 50,
+    "max_features": null,
+    "class_weight": "balanced",
+    "criterion": "gini"
+  },
+  "top_10_features": [
+    {
+      "Feature": "Roles_freq_mean",
+      "Importance": 0.40467492749244555
+    },
+    {
+      "Feature": "SmoothedRisk_avg",
+      "Importance": 0.306287261419057
+    },
+    {
+      "Feature": "GeoLoc_freq_avg",
+      "Importance": 0.08206353209882243
+    },
+    {
+      "Feature": "ResourceType_freq_mean",
+      "Importance": 0.08161342851574245
+    },
+    {
+      "Feature": "LastVerdict_freq_mean",
+      "Importance": 0.06444406630617466
+    },
+    {
+      "Feature": "Category_freq_mean",
+      "Importance": 0.02650804813439192
+    },
+    {
+      "Feature": "Duration_seconds",
+      "Importance": 0.01031140611962805
+    },
+    {
+      "Feature": "T1078_sum",
+      "Importance": 0.004993086619591027
+    },
+    {
+      "Feature": "NumEvidences",
+      "Importance": 0.003758729184060665
+    },
+    {
+      "Feature": "EntityType_freq_mean",
+      "Importance": 0.0035389006188749975
+    }
+  ]
+}

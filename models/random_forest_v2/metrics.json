@@ -1,0 +1,85 @@
+{
+  "model_name": "RandomForest_v2",
+  "timestamp": "2025-11-01T23:08:14.198220",
+  "dataset_version": "processed_v3_balanced",
+  "test_accuracy": 0.8816948313795248,
+  "test_precision": 0.8487954894925679,
+  "test_recall": 0.7224799081515499,
+  "test_f1_score": 0.7805604137982362,
+  "test_roc_auc": 0.92403496120124,
+  "n_features": 43,
+  "n_train_samples": 304848,
+  "n_test_samples": 149537,
+  "class_distribution_train": {
+    "class_0": 152424,
+    "class_1": 152424
+  },
+  "per_class_metrics": {
+    "class_0_non_tp": {
+      "precision": 0.8925383220115944,
+      "recall": 0.9471161557549511,
+      "f1_score": 0.9190176466549175
+    },
+    "class_1_tp": {
+      "precision": 0.8487954894925679,
+      "recall": 0.7224799081515499,
+      "f1_score": 0.7805604137982362
+    }
+  },
+  "confusion_matrix": {
+    "true_negatives": 100382,
+    "false_positives": 5605,
+    "false_negatives": 12086,
+    "true_positives": 31464
+  },
+  "hyperparameters": {
+    "n_estimators": 100,
+    "max_depth": 15,
+    "min_samples_split": 50,
+    "min_samples_leaf": 20,
+    "max_features": "sqrt",
+    "class_weight": "balanced"
+  },
+  "top_10_features": [
+    {
+      "Feature": "SmoothedRisk_avg",
+      "Importance": 0.2766180774407572
+    },
+    {
+      "Feature": "Roles_freq_mean",
+      "Importance": 0.0979034691354519
+    },
+    {
+      "Feature": "ActionGranular_freq_mean",
+      "Importance": 0.08054159791674621
+    },
+    {
+      "Feature": "ResourceType_freq_mean",
+      "Importance": 0.07498150709359938
+    },
+    {
+      "Feature": "ThreatFamily_freq_mean",
+      "Importance": 0.07134807859264453
+    },
+    {
+      "Feature": "ActionGrouped_freq_mean",
+      "Importance": 0.06994193912740368
+    },
+    {
+      "Feature": "EntityType_freq_mean",
+      "Importance": 0.05019611181308105
+    },
+    {
+      "Feature": "AntispamDirection_freq_mean",
+      "Importance": 0.04930494527821108
+    },
+    {
+      "Feature": "GeoLoc_freq_avg",
+      "Importance": 0.04259129237464381
+    },
+    {
+      "Feature": "Category_freq_mean",
+      "Importance": 0.03162688936524349
+    }
+  ]
+}

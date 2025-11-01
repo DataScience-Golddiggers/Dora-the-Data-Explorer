@@ -1,21 +1,22 @@
 {
   "model_name": "XGBoost_v2_Binary",
-  "timestamp": "2025-10-30T14:52:12.711380",
-  "dataset_version": "processed_v3",
+  "timestamp": "2025-11-01T21:54:55.829222",
+  "dataset_version": "processed_v4_hybrid",
   "target": "BinaryIncidentGrade (0=Non-TP, 1=TP)",
-  "test_accuracy": 0.8755291332579896,
-  "test_precision": 0.7939921246846336,
-  "test_recall": 0.7732261768082663,
-  "test_f1_score": 0.7834715743185864,
-  "test_roc_auc": 0.9326768467163677,
-  "cv_roc_auc_mean": 0.9329213729823309,
-  "cv_roc_auc_std": 0.0007333581102801103,
+  "test_accuracy": 0.8790867811979644,
+  "test_precision": 0.8173707165109034,
+  "test_recall": 0.7530884041331802,
+  "test_f1_score": 0.7839139527935465,
+  "test_roc_auc": 0.9304018250532361,
+  "cv_roc_auc_mean": 0.9435147140940596,
+  "cv_roc_auc_std": 0.0012247899840940218,
   "n_features": 43,
-  "n_train_samples": 348918,
+  "n_train_samples": 243878,
+  "n_val_samples": 60970,
   "n_test_samples": 149537,
   "class_distribution_train": {
-    "class_0": 247302,
-    "class_1": 101616
+    "class_0": 121939,
+    "class_1": 121939
   },
   "hyperparameters": {
     "objective": "binary:logistic",
@@ -24,48 +25,49 @@
     "n_estimators": 200,
     "subsample": 0.8,
     "colsample_bytree": 0.8,
-    "scale_pos_weight": 2.4336915446386396
+    "scale_pos_weight": 1.0
   },
   "top_10_features": [
     {
-      "Feature": "ResourceType_freq_mean",
-      "Importance": 0.37426862120628357
+      "Feature": "ActionGrouped_freq_mean",
+      "Importance": 0.3384053409099579
     },
     {
-      "Feature": "ActionGrouped_freq_mean",
-      "Importance": 0.2828841507434845
+      "Feature": "ResourceType_freq_mean",
+      "Importance": 0.29491233825683594
     },
     {
       "Feature": "ActionGranular_freq_mean",
-      "Importance": 0.18910866975784302
-    },
-    {
-      "Feature": "SmoothedRisk_avg",
-      "Importance": 0.03826215863227844
-    },
-    {
-      "Feature": "T1078_sum",
-      "Importance": 0.030657537281513214
-    },
-    {
-      "Feature": "GeoLoc_freq_avg",
-      "Importance": 0.011362526565790176
-    },
-    {
-      "Feature": "EvidenceRole_Related_sum",
-      "Importance": 0.0076469965279102325
-    },
-    {
-      "Feature": "LastVerdict_freq_mean",
-      "Importance": 0.0064946869388222694
-    },
-    {
-      "Feature": "ThreatFamily_freq_mean",
-      "Importance": 0.0051554362289607525
+      "Importance": 0.16362009942531586
     },
     {
       "Feature": "Roles_freq_mean",
-      "Importance": 0.005056822206825018
+      "Importance": 0.06093892082571983
+    },
+    {
+      "Feature": "SmoothedRisk_avg",
+      "Importance": 0.03290152549743652
+    },
+    {
+      "Feature": "T1078_sum",
+      "Importance": 0.014229890890419483
+    },
+    {
+      "Feature": "ThreatFamily_freq_mean",
+      "Importance": 0.014065656810998917
+    },
+    {
+      "Feature": "GeoLoc_freq_avg",
+      "Importance": 0.011094102635979652
+    },
+    {
+      "Feature": "LastVerdict_freq_mean",
+      "Importance": 0.00990641675889492
+    },
+    {
+      "Feature": "EntityType_freq_mean",
+      "Importance": 0.004439718555659056
     }
-  ]
+  ],
+  "note": "Validation set (20% of train) used for eval_set monitoring. Test set used only for final evaluation."
 }
