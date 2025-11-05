@@ -1,6 +1,6 @@
 {
   "model_name": "DecisionTree",
-  "timestamp": "2025-11-01T22:49:52.414760",
+  "timestamp": "2025-11-04T13:45:34.246627",
   "dataset_version": "processed_v3",
   "test_accuracy": 0.8711021352574948,
   "test_precision": 0.794978977811262,
@@ -45,7 +45,7 @@
   "top_10_features": [
     {
       "Feature": "Roles_freq_mean",
-      "Importance": 0.40467492749244555
+      "Importance": 0.4046749274924455
     },
     {
       "Feature": "SmoothedRisk_avg",
@@ -57,7 +57,7 @@
     },
     {
       "Feature": "ResourceType_freq_mean",
-      "Importance": 0.08161342851574245
+      "Importance": 0.08161342851574246
     },
     {
       "Feature": "LastVerdict_freq_mean",
@@ -73,15 +73,15 @@
     },
     {
       "Feature": "T1078_sum",
-      "Importance": 0.004993086619591027
+      "Importance": 0.0049930866195910285
     },
     {
       "Feature": "NumEvidences",
-      "Importance": 0.003758729184060665
+      "Importance": 0.0037587291840606614
     },
     {
       "Feature": "EntityType_freq_mean",
-      "Importance": 0.0035389006188749975
+      "Importance": 0.00353890061887498
     }
   ]
 }
