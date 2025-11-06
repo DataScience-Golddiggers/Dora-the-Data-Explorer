@@ -67,53 +67,8 @@ docs/              # Documentation
 
 ## 🚀 Quick Start
 
-### Installation
-```bash
-pip install pandas numpy scikit-learn xgboost matplotlib seaborn
-```
+Only start jupiter notebooks in the displayed order, from 1-... to 9-..., then wait and enjoy!
 
-### Run Best Model (30 seconds)
-```python
-from guide_utils import load_guide_dataset, full_preprocessing_pipeline
-import xgboost as xgb
-
-# Load processed data (450K incidents)
-X_train = pd.read_csv('data/processed/X_train.csv')
-y_train = pd.read_csv('data/processed/y_train.csv')
-
-# Train XGBoost
-model = xgb.XGBClassifier(
-    objective='multi:softmax', num_class=3,
-    max_depth=6, learning_rate=0.1, n_estimators=200
-)
-model.fit(X_train, y_train)
-
-# Evaluate
-from sklearn.metrics import f1_score
-y_pred = model.predict(X_test)
-print(f"Macro F1: {f1_score(y_test, y_pred, average='macro'):.4f}")
-```
-
-### Full Pipeline (from raw data)
-```python
-from guide_utils import full_preprocessing_pipeline
-
-# Preprocess raw GUIDE_Train.csv → incident-level features
-X, y = full_preprocessing_pipeline('data/GUIDE_Train.csv')
-# Output: 448,901 incidents × 23 features
-```
-
-## 🔬 Key Notebooks (Execution Order)
-
-1. **`Test_00-Advanced_EDA.ipynb`** - Missing value analysis, class distribution (BP: 43%, TP: 35%, FP: 21%)
-2. **`exploration/analisi_mitre_preprocessing.ipynb`** - Parse MITRE techniques (T1078, T1566, etc.) → 25 binary features
-3. **`Test_03-FeatureEngineering_v3.ipynb`** - Create 23 aggregated features:
-- Structural: `NumAlerts`, `NumEvidences`, `NumEntityTypes`
-- Temporal: `Hour_First`, `Duration_seconds`, `IsWeekend`
-- Security: `NumWithSuspicion`, `NumUniqueMitre`, `HasMitreTechniques`
-- Geographic: `NumCountries`, `NumStates`, `NumCities`
-4. **`Test_03-XGBoost_v2_Model.ipynb`** - Train best model (0.8559 macro F1)
-5. **`Test_12-ModelComparison.ipynb`** - Benchmark XGBoost vs RF vs DT vs MLP
 
 ## 📊 Feature Engineering
 
@@ -136,7 +91,7 @@ incident_features = evidence_df.groupby('IncidentId').agg({
 
 **MITRE processing** (from `MitreTechniques` column):
 - Parse semicolon-separated lists: `"T1078;T1566"` → separate columns
-- 25 most frequent techniques (>0.5% occurrence) → one-hot encoded
+- 30 most frequent techniques (>0.5% occurrence) → one-hot encoded
 - `n_rare` column for rare techniques count
 
 ## 🛠️ Utilities (`guide_utils.py`)
@@ -170,18 +125,18 @@ incident_features = evidence_df.groupby('IncidentId').agg({
 - `max_depth=15`, Gini impurity
 - Macro F1: 0.7891
 
-### MLP Baseline (`models/mlp_baseline/`)
+### MLP (`models/mlp_baseline/`)
 - 3 hidden layers (128-64-32), ReLU, Dropout(0.3)
 - Macro F1: 0.7456
 
 ## 🎓 Key Insights
 
-1. **Class Imbalance Strategy**: Stratified splitting (test_size=0.3, random_state=42) + XGBoost's `scale_pos_weight`
-2. **ID Columns**: Treat `DeviceId`, `AlertId`, `OrgId` as categorical (they're anonymized)
+1. **Class Imbalance Strategy**: manual balancement, undersampling and SMOTE
+2. **ID Columns**: Treat `DeviceId`, `AlertId`, `OrgId` by deleting them
 3. **Missing Values**:
 - `MitreTechniques` (57% missing) → `HasMitreTechniques` binary indicator
 - `SuspicionLevel` (80% missing) → `SuspicionLevel_IsMissing` indicator
-- Use `-999` for NaN in XGBoost models
+- Use `-999` or 'missing' for NaN 
 4. **Never model at Evidence level**: Always aggregate to Incident before classification
 
 ## 📖 Documentation
@@ -209,10 +164,10 @@ print(classification_report(y_test, y_pred,
 ## 🤝 Contributing
 
 When adding features:
-1. Aggregate to Incident level in `Test_03-FeatureEngineering_v3.ipynb`
+1. Aggregate to Incident level in `2-FeatureEngineering.ipynb`
 2. Update `guide_utils.create_aggregated_features()`
-3. Re-run model training notebooks
-4. Compare metrics in `Test_12-ModelComparison.ipynb`
+3. Re-run balancement and model training notebooks
+4. Compare metrics in `9-ModelComparison.ipynb`
 
 ## 📄 License
 
