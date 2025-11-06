@@ -1,6 +1,6 @@
 {
   "model_name": "DecisionTree",
-  "timestamp": "2025-11-04T13:45:34.246627",
+  "timestamp": "2025-11-06T14:27:35.593742",
   "dataset_version": "processed_v3",
   "test_accuracy": 0.8711021352574948,
   "test_precision": 0.794978977811262,

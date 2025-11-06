@@ -1,15 +1,15 @@
 {
   "model_name": "XGBoost_v2_Binary",
-  "timestamp": "2025-11-01T21:54:55.829222",
+  "timestamp": "2025-11-06T15:05:27.833481",
   "dataset_version": "processed_v4_hybrid",
   "target": "BinaryIncidentGrade (0=Non-TP, 1=TP)",
-  "test_accuracy": 0.8790867811979644,
-  "test_precision": 0.8173707165109034,
-  "test_recall": 0.7530884041331802,
-  "test_f1_score": 0.7839139527935465,
-  "test_roc_auc": 0.9304018250532361,
-  "cv_roc_auc_mean": 0.9435147140940596,
-  "cv_roc_auc_std": 0.0012247899840940218,
+  "test_accuracy": 0.8786320442432308,
+  "test_precision": 0.8160664957817982,
+  "test_recall": 0.7529735935706084,
+  "test_f1_score": 0.7832515256828252,
+  "test_roc_auc": 0.9307323552678411,
+  "cv_roc_auc_mean": 0.9434293119473776,
+  "cv_roc_auc_std": 0.001220934682275214,
   "n_features": 43,
   "n_train_samples": 243878,
   "n_val_samples": 60970,
@@ -29,44 +29,44 @@
   },
   "top_10_features": [
     {
-      "Feature": "ActionGrouped_freq_mean",
-      "Importance": 0.3384053409099579
-    },
-    {
       "Feature": "ResourceType_freq_mean",
-      "Importance": 0.29491233825683594
+      "Importance": 0.3306536376476288
     },
     {
       "Feature": "ActionGranular_freq_mean",
-      "Importance": 0.16362009942531586
+      "Importance": 0.24614465236663818
+    },
+    {
+      "Feature": "ActionGrouped_freq_mean",
+      "Importance": 0.23061062395572662
     },
     {
       "Feature": "Roles_freq_mean",
-      "Importance": 0.06093892082571983
+      "Importance": 0.05330335348844528
     },
     {
       "Feature": "SmoothedRisk_avg",
-      "Importance": 0.03290152549743652
+      "Importance": 0.032188449054956436
     },
     {
       "Feature": "T1078_sum",
-      "Importance": 0.014229890890419483
+      "Importance": 0.019660709425807
     },
     {
       "Feature": "ThreatFamily_freq_mean",
-      "Importance": 0.014065656810998917
+      "Importance": 0.011508062481880188
     },
     {
       "Feature": "GeoLoc_freq_avg",
-      "Importance": 0.011094102635979652
+      "Importance": 0.009899967350065708
     },
     {
       "Feature": "LastVerdict_freq_mean",
-      "Importance": 0.00990641675889492
+      "Importance": 0.009739129804074764
     },
     {
-      "Feature": "EntityType_freq_mean",
-      "Importance": 0.004439718555659056
+      "Feature": "AntispamDirection_freq_mean",
+      "Importance": 0.004800332244485617
     }
   ],
   "note": "Validation set (20% of train) used for eval_set monitoring. Test set used only for final evaluation."
