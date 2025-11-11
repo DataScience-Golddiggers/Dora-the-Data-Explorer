@@ -1,0 +1,70 @@
+{
+  "model_name": "PcAbuser_Ensemble",
+  "timestamp": "2025-11-11T12:52:25.167560",
+  "description": "Weighted voting ensemble of XGBoost v2 and MLP Baseline",
+  "dataset_version": "processed_v4_hybrid",
+  "ensemble_strategy": {
+    "type": "weighted_voting",
+    "xgb_weight": 0.6,
+    "mlp_weight": 0.4,
+    "uncertainty_threshold_low": 0.4,
+    "uncertainty_threshold_high": 0.6,
+    "logic": "Use XGBoost primarily, consult MLP when XGBoost is uncertain (0.4 < prob < 0.6)"
+  },
+  "base_models": {
+    "xgboost_v2": {
+      "path": "../models/xgboost_v2",
+      "test_roc_auc": 0.9307323552678411,
+      "test_f1_score": 0.7832515256828252,
+      "test_accuracy": 0.8786320442432308
+    },
+    "mlp_baseline": {
+      "path": "../models/mlp_baseline",
+      "test_roc_auc": 0.8151190252228255,
+      "test_f1_score": 0.5419160078976055,
+      "test_accuracy": 0.5981529654868026
+    }
+  },
+  "data": {
+    "n_test_samples": 149537,
+    "n_features": 43,
+    "n_uncertain_cases": 13412,
+    "uncertain_percentage": 8.969017701304693
+  },
+  "test_metrics": {
+    "accuracy": 0.871576934136702,
+    "precision": 0.7835282060837565,
+    "recall": 0.7724454649827784,
+    "f1_score": 0.7779473659867722,
+    "roc_auc": 0.9306424535288144
+  },
+  "improvements_vs_xgboost": {
+    "accuracy_delta": -0.007055110106528817,
+    "f1_score_delta": -0.0053041596960530235,
+    "roc_auc_delta": -8.990173902678755e-05
+  },
+  "per_class_metrics": {
+    "class_0_non_tp": {
+      "precision": 0.9070382634635048,
+      "recall": 0.9123100002830535,
+      "f1_score": 0.9096664941906957
+    },
+    "class_1_tp": {
+      "precision": 0.7835282060837565,
+      "recall": 0.7724454649827784,
+      "f1_score": 0.7779473659867722
+    }
+  },
+  "confusion_matrix": {
+    "true_negatives": 96693,
+    "false_positives": 9294,
+    "false_negatives": 9910,
+    "true_positives": 33640
+  },
+  "uncertain_cases_analysis": {
+    "n_uncertain": 13412,
+    "xgb_uncertain_correct": 7646,
+    "ensemble_uncertain_correct": 6591,
+    "improvement": -1055
+  }
+}
