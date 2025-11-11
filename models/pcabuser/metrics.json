@@ -1,13 +1,13 @@
 {
   "model_name": "PcAbuser_Ensemble",
-  "timestamp": "2025-11-11T12:52:25.167560",
+  "timestamp": "2025-11-11T13:39:26.142649",
   "description": "Weighted voting ensemble of XGBoost v2 and MLP Baseline",
   "dataset_version": "processed_v4_hybrid",
   "ensemble_strategy": {
     "type": "weighted_voting",
     "xgb_weight": 0.6,
     "mlp_weight": 0.4,
-    "uncertainty_threshold_low": 0.4,
+    "uncertainty_threshold_low": 0.05,
     "uncertainty_threshold_high": 0.6,
     "logic": "Use XGBoost primarily, consult MLP when XGBoost is uncertain (0.4 < prob < 0.6)"
   },
@@ -28,43 +28,43 @@
   "data": {
     "n_test_samples": 149537,
     "n_features": 43,
-    "n_uncertain_cases": 13412,
-    "uncertain_percentage": 8.969017701304693
+    "n_uncertain_cases": 80228,
+    "uncertain_percentage": 53.650935888776694
   },
   "test_metrics": {
-    "accuracy": 0.871576934136702,
-    "precision": 0.7835282060837565,
-    "recall": 0.7724454649827784,
-    "f1_score": 0.7779473659867722,
-    "roc_auc": 0.9306424535288144
+    "accuracy": 0.8671231869035757,
+    "precision": 0.767232429016386,
+    "recall": 0.7805510907003445,
+    "f1_score": 0.7738344563831725,
+    "roc_auc": 0.9206917020356362
   },
   "improvements_vs_xgboost": {
-    "accuracy_delta": -0.007055110106528817,
-    "f1_score_delta": -0.0053041596960530235,
-    "roc_auc_delta": -8.990173902678755e-05
+    "accuracy_delta": -0.01150885733965512,
+    "f1_score_delta": -0.009417069299652692,
+    "roc_auc_delta": -0.010040653232204932
   },
   "per_class_metrics": {
     "class_0_non_tp": {
-      "precision": 0.9070382634635048,
-      "recall": 0.9123100002830535,
-      "f1_score": 0.9096664941906957
+      "precision": 0.9091807547205671,
+      "recall": 0.9026956136129902,
+      "f1_score": 0.9059265782272344
     },
     "class_1_tp": {
-      "precision": 0.7835282060837565,
-      "recall": 0.7724454649827784,
-      "f1_score": 0.7779473659867722
+      "precision": 0.767232429016386,
+      "recall": 0.7805510907003445,
+      "f1_score": 0.7738344563831725
     }
   },
   "confusion_matrix": {
-    "true_negatives": 96693,
-    "false_positives": 9294,
-    "false_negatives": 9910,
-    "true_positives": 33640
+    "true_negatives": 95674,
+    "false_positives": 10313,
+    "false_negatives": 9557,
+    "true_positives": 33993
   },
   "uncertain_cases_analysis": {
-    "n_uncertain": 13412,
-    "xgb_uncertain_correct": 7646,
-    "ensemble_uncertain_correct": 6591,
-    "improvement": -1055
+    "n_uncertain": 80228,
+    "xgb_uncertain_correct": 66245,
+    "ensemble_uncertain_correct": 64524,
+    "improvement": -1721
   }
 }

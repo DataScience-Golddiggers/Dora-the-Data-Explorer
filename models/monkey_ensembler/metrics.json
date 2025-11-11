@@ -1,43 +1,43 @@
 {
   "model_name": "MonkeyEnsembler",
-  "timestamp": "2025-11-11T12:39:52.184618",
+  "timestamp": "2025-11-11T13:33:06.078899",
   "description": "Ensemble of XGBoost + Random Forest with RF override on uncertain cases",
   "dataset_version": "processed_v4_hybrid",
   "ensemble_strategy": {
     "primary_model": "XGBoost v2",
     "secondary_model": "Random Forest v2",
-    "confidence_threshold": 0.56,
+    "confidence_threshold": 0.52,
     "override_policy": "RF predictions used when XGB max_proba < threshold"
   },
-  "test_accuracy": 0.8813470913553167,
-  "test_precision": 0.8379560514391975,
-  "test_recall": 0.7346498277841561,
-  "test_f1_score": 0.7829097894311828,
-  "test_roc_auc": 0.9297637072380158,
+  "test_accuracy": 0.8803373078234819,
+  "test_precision": 0.8251051751229155,
+  "test_recall": 0.747577497129736,
+  "test_f1_score": 0.7844304163454124,
+  "test_roc_auc": 0.9304817526469815,
   "n_features": 43,
   "n_test_samples": 149537,
   "uncertain_cases": {
-    "count": 7951,
-    "percentage": 5.3170787163043265,
-    "rf_interventions": 2816
+    "count": 2628,
+    "percentage": 1.75742458388225,
+    "rf_interventions": 1123
   },
   "per_class_metrics": {
     "class_0_non_tp": {
-      "precision": 0.8962247207155429,
-      "recall": 0.9416249162633153,
-      "f1_score": 0.9183640604942418
+      "precision": 0.9001353573342781,
+      "recall": 0.93488824101069,
+      "f1_score": 0.9171827126896411
     },
     "class_1_tp": {
-      "precision": 0.8379560514391975,
-      "recall": 0.7346498277841561,
-      "f1_score": 0.7829097894311828
+      "precision": 0.8251051751229155,
+      "recall": 0.747577497129736,
+      "f1_score": 0.7844304163454124
     }
   },
   "confusion_matrix": {
-    "true_negatives": 99800,
-    "false_positives": 6187,
-    "false_negatives": 11556,
-    "true_positives": 31994
+    "true_negatives": 99086,
+    "false_positives": 6901,
+    "false_negatives": 10993,
+    "true_positives": 32557
   },
   "comparison_vs_base_models": {
     "xgboost_v2": {
@@ -49,8 +49,8 @@
       "roc_auc": 0.9241242394207803
     },
     "improvements": {
-      "f1_score_vs_best": "-0.04%",
-      "roc_auc_vs_best": "-0.10%"
+      "f1_score_vs_best": "+0.15%",
+      "roc_auc_vs_best": "-0.03%"
     }
   },
   "top_10_features_ensemble": [
