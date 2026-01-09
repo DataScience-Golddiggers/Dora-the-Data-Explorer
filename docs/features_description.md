@@ -6,8 +6,8 @@ Tutte le feature sono aggregate a livello di **IncidentId**.
 ## 1. Target Variables
 | Feature | Tipo | Descrizione |
 |---------|------|-------------|
-| **BinaryIncidentGrade** | Binario (0/1) | Il target per la classificazione. <br>• `1`: **TruePositive** (Incidente reale)<br>• `0`: **BenignPositive** (Falso allarme legittimo) o **FalsePositive** (Errore di rilevamento). |
-| **IncidentGrade** | Categorico | La label originale (usata per analisi, non per training diretto in questo setup binario). |
+| **BinaryIncidentGrade** | Binario (0/1) | Il target per la classificazione binaria. <br>• `1`: **TruePositive** (Incidente reale che richiede intervento)<br>• `0`: **BenignPositive** (Attività legittima rilevata correttamente) o **FalsePositive** (Rilevamento errato). |
+| **IncidentGrade** | Categorico | La label originale a 3 classi (TruePositive, BenignPositive, FalsePositive). Usata per analisi, non per training diretto in questo setup binario. |
 
 ## 2. Feature Strutturali (Volumetria)
 Queste feature descrivono la "dimensione" e la complessità dell'incidente.
@@ -22,7 +22,7 @@ Indicatori derivati dalla gravità degli alert e delle evidenze.
 
 | Feature | Logica Aggregazione | Significato |
 |---------|---------------------|-------------|
-| **SmoothedRisk_avg** | `mean` | La media del "rischio smussato" (Bayesian Smoothing) calcolato su `AlertTitle`. <br>• Valori alti: Gli alert in questo incidente sono storicamente associati a TruePositive.<br>• Valori bassi: Gli alert sono spesso falsi positivi. |
+| **SmoothedRisk_avg** | `mean` | La media del "rischio smussato" (Bayesian Smoothing con α=2, β=2) calcolato su `AlertTitle`. <br>• Valori alti: Gli alert in questo incidente sono storicamente associati a TruePositive.<br>• Valori bassi: Gli alert sono spesso falsi positivi.<br>✅ Calcolato solo su train set, con prior=0.5 per AlertTitle non visti. |
 | **SuspicionLevel_{Level}** | `sum` | Conteggio di quante evidenze hanno un certo livello di sospetto (es. `SuspicionLevel_High`, `SuspicionLevel_Medium`). Generate via One-Hot Encoding e sommate. |
 
 ## 4. Feature Temporali
@@ -34,9 +34,9 @@ Analisi del comportamento temporale dell'attacco.
 | **Hour_First** | `min` | L'ora del giorno (0-23) in cui è apparso il primo segnale. |
 | **Hour_Last** | `max` | L'ora del giorno dell'ultimo segnale. |
 | **Hour_Avg** | `mean` | L'ora media ponderata delle evidenze. |
-| **month** | `mode` | Il mese prevalente dell'incidente (stagionalità). |
-| **weekday** | `mode` | Il giorno della settimana prevalente (1=Lun, 7=Dom). |
-| **IsWeekend** | `max` | Flag binario (1 se almeno un'evidenza è avvenuta nel weekend). |
+| **month_get_mode** | `mode` | Il mese prevalente dell'incidente (1-12). In caso di parità, restituisce il primo valore in ordine. |
+| **weekday_get_mode** | `mode` | Il giorno della settimana prevalente (1=Lun...7=Dom). In caso di parità, restituisce il primo valore. |
+| **IsWeekend_max** | `max` | Flag binario (1 se almeno un'evidenza è avvenuta nel weekend). |
 
 ## 5. Feature Geografiche
 | Feature | Logica Aggregazione | Significato |
@@ -45,7 +45,10 @@ Analisi del comportamento temporale dell'attacco.
 
 ## 6. Categorical Frequency Features
 Per evitare l'alta dimensionalità, queste colonne categoriche sono state trasformate usando la loro **frequenza relativa** nel dataset.
-*Valore aggregato: Media (mean) delle frequenze delle evidenze nell'incidente.*
+
+*Valore aggregato: Media (`mean`) delle frequenze delle evidenze nell'incidente.*
+
+✅ Le frequenze sono calcolate **solo sul train set**. Per valori non visti nel test, si usa la mediana delle frequenze come fallback. Categorie con < 100 occorrenze vengono raggruppate in `'Other'` per `LastVerdict`.
 
 | Feature | Descrizione Originale | Interpretazione del Valore |
 |---------|-----------------------|----------------------------|
@@ -60,11 +63,14 @@ Per evitare l'alta dimensionalità, queste colonne categoriche sono state trasfo
 | **Category_freq** | Categoria alert | Se l'incidente appartiene a categorie di alert rare. |
 
 ## 7. Evidence Roles (Ruoli Contestuali)
-Generate via One-Hot Encoding e sommate (`sum`). Indicano la struttura dell'incidente.
+Generate via One-Hot Encoding (con `drop_first=True`) e sommate (`sum`). Indicano la struttura dell'incidente.
 
 | Feature | Significato |
 |---------|-------------|
-| **EvidenceRole_{Role}** | Conta quante evidenze hanno uno specifico ruolo (es. `EvidenceRole_Attacker`, `EvidenceRole_Target`). Aiuta a distinguere incidenti con molti attaccanti o molte vittime. |
+| **EvidenceRole_\*** | Conta quante evidenze hanno uno specifico ruolo (es. `EvidenceRole_Attacker`, `EvidenceRole_Target`). Aiuta a distinguere incidenti con molti attaccanti o molte vittime. |
+| **SuspicionLevel_\*** | Conta quante evidenze hanno un certo livello di sospetto (es. `SuspicionLevel_High`, `SuspicionLevel_Medium`). |
+
+**Preprocessing:** Categorie rare (< 100 occorrenze) vengono raggruppate in `'Other'` prima dell'encoding.
 
 ## 8. MITRE ATT&CK Techniques
 Le 30 tecniche MITRE più frequenti nel dataset.
@@ -76,4 +82,8 @@ Le 30 tecniche MITRE più frequenti nel dataset.
 
 ---
 **Nota sulla Dimensionalità:**
-Il dataset finale contiene circa **70-80 colonne**. Dato che abbiamo ~450.000 incidenti nel training set, il rapporto campioni/feature è > 5000:1, escludendo rischi di Curse of Dimensionality. Le feature "Frequency" comprimono l'informazione di migliaia di possibili categorie in singoli valori continui rappresentativi della loro "normalità".
+Il dataset finale contiene circa **50-60 colonne** (dipende dalla cardinalità effettiva di SuspicionLevel/EvidenceRole dopo il raggruppamento delle categorie rare). Dato che abbiamo ~450.000 incidenti nel training set, il rapporto campioni/feature è > 7500:1, escludendo rischi di Curse of Dimensionality. Le feature "Frequency" comprimono l'informazione di migliaia di possibili categorie in singoli valori continui rappresentativi della loro "normalità".
+
+**Nota sul Preprocessing:**
+- I valori mancanti finali vengono riempiti con `-999` (gestito nativamente da XGBoost)
+- Le colonne `Roles`, `ActionGrouped`, `SuspicionLevel`, `LastVerdict` hanno fill con `'Missing'` prima del frequency encoding

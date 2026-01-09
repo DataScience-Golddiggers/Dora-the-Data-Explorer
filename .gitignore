@@ -1,9 +1,8 @@
 
 
 data/*.csv
-data/processed/**/*.csv
-data/processed_v3/**/*.csv
-data/processed_v3_balanced/**/*.csv
+data/processed*/**/*.csv
+data/processed*/**/*.pkl
 logs/*.log
 temp/*.tmp
 .DS_Store
