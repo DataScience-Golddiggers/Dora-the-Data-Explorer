@@ -1,15 +1,15 @@
 {
   "model_name": "XGBoost_v2_Binary",
-  "timestamp": "2026-01-10T12:15:28.283469",
+  "timestamp": "2026-01-10T14:35:23.221427",
   "dataset_version": "processed_v4_hybrid",
   "target": "BinaryIncidentGrade (0=Non-TP, 1=TP)",
-  "test_accuracy": 0.7866578550690201,
-  "test_precision": 0.4994526100020964,
-  "test_recall": 0.7475247524752475,
-  "test_f1_score": 0.5988130978147036,
-  "test_roc_auc": 0.8744940159008432,
-  "cv_roc_auc_mean": 0.9168778233127106,
-  "cv_roc_auc_std": 0.0009107925018772404,
+  "test_accuracy": 0.7852470093784111,
+  "test_precision": 0.4972594185804482,
+  "test_recall": 0.7495816483056756,
+  "test_f1_score": 0.5978894095073899,
+  "test_roc_auc": 0.8737638829160654,
+  "cv_roc_auc_mean": 0.9171746265425312,
+  "cv_roc_auc_std": 0.0007140184780986267,
   "n_features": 43,
   "n_train_samples": 160627,
   "n_val_samples": 40157,
@@ -30,43 +30,43 @@
   "top_10_features": [
     {
       "Feature": "SmoothedRisk_avg",
-      "Importance": 0.2719613313674927
+      "Importance": 0.29898446798324585
     },
     {
       "Feature": "T1078_sum",
-      "Importance": 0.1906859278678894
+      "Importance": 0.11501801759004593
     },
     {
       "Feature": "EvidenceRole_Related_sum",
-      "Importance": 0.05201931297779083
-    },
-    {
-      "Feature": "Roles_freq_mean",
-      "Importance": 0.042778074741363525
-    },
-    {
-      "Feature": "EntityType_freq_mean",
-      "Importance": 0.036946263164281845
+      "Importance": 0.060504473745822906
     },
     {
       "Feature": "GeoLoc_freq_avg",
-      "Importance": 0.03618908300995827
+      "Importance": 0.05003734678030014
     },
     {
-      "Feature": "NumEvidences",
-      "Importance": 0.028858119621872902
+      "Feature": "EntityType_freq_mean",
+      "Importance": 0.04334523528814316
+    },
+    {
+      "Feature": "Roles_freq_mean",
+      "Importance": 0.04326552152633667
     },
     {
       "Feature": "SuspicionLevel_Missing_sum",
-      "Importance": 0.028046458959579468
+      "Importance": 0.03199080377817154
+    },
+    {
+      "Feature": "LastVerdict_freq_mean",
+      "Importance": 0.026830516755580902
+    },
+    {
+      "Feature": "NumEvidences",
+      "Importance": 0.02342265658080578
     },
     {
       "Feature": "Category_freq_mean",
-      "Importance": 0.0225333534181118
-    },
-    {
-      "Feature": "SuspicionLevel_Suspicious_sum",
-      "Importance": 0.020774582400918007
+      "Importance": 0.022968390956521034
     }
   ],
   "note": "Validation set (20% of train) used for eval_set monitoring. Test set used only for final evaluation."

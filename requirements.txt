@@ -11,7 +11,10 @@ xgboost>=1.7.0
 # Random Forest is included in scikit-learn
 
 # Deep Learning (for MLP)
-torch>=2.9.0
+--extra-index-url https://download.pytorch.org/whl/cu124  #comment this line if not using CUDA
+torch
+
+
 
 # Data Visualization
 matplotlib>=3.6.0
@@ -31,11 +34,6 @@ ipykernel>=6.0.0
 
 # Optional: For model interpretability
 # shap>=0.41.0  # SHAP values for model interpretation
-
-# Development Tools
-pytest>=7.2.0  # Unit testing
-black>=23.0.0  # Code formatting
-flake8>=6.0.0  # Linting
 
 # Note: Install with: pip install -r requirements.txt
 # For GPU support with PyTorch, see: https://pytorch.org/get-started/locally/

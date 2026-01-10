@@ -1,12 +1,12 @@
 {
   "model_name": "RandomForest_v2",
-  "timestamp": "2026-01-10T12:14:45.682759",
+  "timestamp": "2026-01-10T13:04:42.594333",
   "dataset_version": "processed_v4_hybrid",
-  "test_accuracy": 0.7740493498971568,
-  "test_precision": 0.48068963990881525,
-  "test_recall": 0.7571817040859016,
-  "test_f1_score": 0.5880569131005726,
-  "test_roc_auc": 0.8702245513485269,
+  "test_accuracy": 0.7744354760861656,
+  "test_precision": 0.4811834529975326,
+  "test_recall": 0.7546715939199554,
+  "test_f1_score": 0.5876667888314262,
+  "test_roc_auc": 0.8705029724000968,
   "n_features": 43,
   "n_train_samples": 200784,
   "n_test_samples": 134671,
@@ -16,21 +16,21 @@
   },
   "per_class_metrics": {
     "class_0_non_tp": {
-      "precision": 0.9221683354192741,
-      "recall": 0.778614358364705,
-      "f1_score": 0.8443330349149507
+      "precision": 0.921535613933366,
+      "recall": 0.7797843131704831,
+      "f1_score": 0.8447547158240107
     },
     "class_1_tp": {
-      "precision": 0.48068963990881525,
-      "recall": 0.7571817040859016,
-      "f1_score": 0.5880569131005726
+      "precision": 0.4811834529975326,
+      "recall": 0.7546715939199554,
+      "f1_score": 0.5876667888314262
     }
   },
   "confusion_matrix": {
-    "true_negatives": 82523,
-    "false_positives": 23464,
-    "false_negatives": 6965,
-    "true_positives": 21719
+    "true_negatives": 82647,
+    "false_positives": 23340,
+    "false_negatives": 7037,
+    "true_positives": 21647
   },
   "hyperparameters": {
     "n_estimators": 100,
@@ -43,43 +43,43 @@
   "top_10_features": [
     {
       "Feature": "SmoothedRisk_avg",
-      "Importance": 0.48790047698293093
+      "Importance": 0.4869635549393251
     },
     {
       "Feature": "EntityType_freq_mean",
-      "Importance": 0.07893653065741739
+      "Importance": 0.07947093779501505
     },
     {
       "Feature": "NumEvidences",
-      "Importance": 0.05044933424502154
+      "Importance": 0.051664047752652834
     },
     {
       "Feature": "Roles_freq_mean",
-      "Importance": 0.048591982111403274
+      "Importance": 0.04911699038933074
     },
     {
       "Feature": "GeoLoc_freq_avg",
-      "Importance": 0.048102069040485106
+      "Importance": 0.04891755834315778
     },
     {
       "Feature": "Category_freq_mean",
-      "Importance": 0.043024548665138426
+      "Importance": 0.042652084030303655
     },
     {
       "Feature": "SuspicionLevel_Missing_sum",
-      "Importance": 0.03896681629712452
+      "Importance": 0.038575891680013276
     },
     {
       "Feature": "EvidenceRole_Related_sum",
-      "Importance": 0.0368732870088292
+      "Importance": 0.0369302317723971
     },
     {
       "Feature": "T1078_sum",
-      "Importance": 0.029668890815041066
+      "Importance": 0.030899240390167698
     },
     {
       "Feature": "LastVerdict_freq_mean",
-      "Importance": 0.02867571430720498
+      "Importance": 0.028407903097525274
     }
   ]
 }
