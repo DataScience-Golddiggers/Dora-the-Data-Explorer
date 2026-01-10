@@ -1,38 +1,38 @@
 {
   "model_name": "DecisionTree",
-  "timestamp": "2025-11-06T14:27:35.593742",
+  "timestamp": "2026-01-09T17:50:05.236114",
   "dataset_version": "processed_v3",
-  "test_accuracy": 0.8711021352574948,
-  "test_precision": 0.794978977811262,
-  "test_recall": 0.751113662456946,
-  "test_f1_score": 0.7724240527999812,
-  "test_roc_auc": 0.9223941235259915,
+  "test_accuracy": 0.7830787623170542,
+  "test_precision": 0.49369442391589385,
+  "test_recall": 0.7219704364802677,
+  "test_f1_score": 0.5863997394911583,
+  "test_roc_auc": 0.8608260380986175,
   "n_features": 43,
-  "n_train_samples": 304848,
-  "n_test_samples": 149537,
+  "n_train_samples": 200784,
+  "n_test_samples": 134671,
   "tree_depth": 10,
-  "n_leaves": 366,
+  "n_leaves": 372,
   "class_distribution_train": {
-    "class_0": 152424,
-    "class_1": 152424
+    "class_0": 100392,
+    "class_1": 100392
   },
   "per_class_metrics": {
     "class_0_non_tp": {
-      "precision": 0.9,
-      "recall": 0.9204053327294857,
-      "f1_score": 0.9100883023831847
+      "precision": 0.9139920624649498,
+      "recall": 0.7996169341523017,
+      "f1_score": 0.8529875044662852
     },
     "class_1_tp": {
-      "precision": 0.794978977811262,
-      "recall": 0.751113662456946,
-      "f1_score": 0.7724240527999812
+      "precision": 0.49369442391589385,
+      "recall": 0.7219704364802677,
+      "f1_score": 0.5863997394911583
     }
   },
   "confusion_matrix": {
-    "true_negatives": 97551,
-    "false_positives": 8436,
-    "false_negatives": 10839,
-    "true_positives": 32711
+    "true_negatives": 84749,
+    "false_positives": 21238,
+    "false_negatives": 7975,
+    "true_positives": 20709
   },
   "hyperparameters": {
     "max_depth": 10,
@@ -44,44 +44,44 @@
   },
   "top_10_features": [
     {
-      "Feature": "Roles_freq_mean",
-      "Importance": 0.4046749274924455
-    },
-    {
       "Feature": "SmoothedRisk_avg",
-      "Importance": 0.306287261419057
+      "Importance": 0.7385722451252975
     },
     {
       "Feature": "GeoLoc_freq_avg",
-      "Importance": 0.08206353209882243
+      "Importance": 0.0673509504262842
     },
     {
-      "Feature": "ResourceType_freq_mean",
-      "Importance": 0.08161342851574246
-    },
-    {
-      "Feature": "LastVerdict_freq_mean",
-      "Importance": 0.06444406630617466
-    },
-    {
-      "Feature": "Category_freq_mean",
-      "Importance": 0.02650804813439192
-    },
-    {
-      "Feature": "Duration_seconds",
-      "Importance": 0.01031140611962805
+      "Feature": "EvidenceRole_Related_sum",
+      "Importance": 0.05474862591734006
     },
     {
       "Feature": "T1078_sum",
-      "Importance": 0.0049930866195910285
-    },
-    {
-      "Feature": "NumEvidences",
-      "Importance": 0.0037587291840606614
+      "Importance": 0.0532500327184246
     },
     {
       "Feature": "EntityType_freq_mean",
-      "Importance": 0.00353890061887498
+      "Importance": 0.027782913507923366
+    },
+    {
+      "Feature": "Category_freq_mean",
+      "Importance": 0.014881717274827457
+    },
+    {
+      "Feature": "Duration_seconds",
+      "Importance": 0.009548262567136673
+    },
+    {
+      "Feature": "NumEvidences",
+      "Importance": 0.006024400792222531
+    },
+    {
+      "Feature": "AntispamDirection_freq_mean",
+      "Importance": 0.0044291402317512074
+    },
+    {
+      "Feature": "weekday_get_mode",
+      "Importance": 0.00438903250604032
     }
   ]
 }
