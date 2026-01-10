@@ -1,22 +1,22 @@
 {
   "model_name": "XGBoost_v2_Binary",
-  "timestamp": "2025-11-06T15:05:27.833481",
+  "timestamp": "2026-01-10T12:15:28.283469",
   "dataset_version": "processed_v4_hybrid",
   "target": "BinaryIncidentGrade (0=Non-TP, 1=TP)",
-  "test_accuracy": 0.8786320442432308,
-  "test_precision": 0.8160664957817982,
-  "test_recall": 0.7529735935706084,
-  "test_f1_score": 0.7832515256828252,
-  "test_roc_auc": 0.9307323552678411,
-  "cv_roc_auc_mean": 0.9434293119473776,
-  "cv_roc_auc_std": 0.001220934682275214,
+  "test_accuracy": 0.7866578550690201,
+  "test_precision": 0.4994526100020964,
+  "test_recall": 0.7475247524752475,
+  "test_f1_score": 0.5988130978147036,
+  "test_roc_auc": 0.8744940159008432,
+  "cv_roc_auc_mean": 0.9168778233127106,
+  "cv_roc_auc_std": 0.0009107925018772404,
   "n_features": 43,
-  "n_train_samples": 243878,
-  "n_val_samples": 60970,
-  "n_test_samples": 149537,
+  "n_train_samples": 160627,
+  "n_val_samples": 40157,
+  "n_test_samples": 134671,
   "class_distribution_train": {
-    "class_0": 121939,
-    "class_1": 121939
+    "class_0": 80313,
+    "class_1": 80314
   },
   "hyperparameters": {
     "objective": "binary:logistic",
@@ -25,48 +25,48 @@
     "n_estimators": 200,
     "subsample": 0.8,
     "colsample_bytree": 0.8,
-    "scale_pos_weight": 1.0
+    "scale_pos_weight": 0.9999875488706825
   },
   "top_10_features": [
     {
-      "Feature": "ResourceType_freq_mean",
-      "Importance": 0.3306536376476288
-    },
-    {
-      "Feature": "ActionGranular_freq_mean",
-      "Importance": 0.24614465236663818
-    },
-    {
-      "Feature": "ActionGrouped_freq_mean",
-      "Importance": 0.23061062395572662
-    },
-    {
-      "Feature": "Roles_freq_mean",
-      "Importance": 0.05330335348844528
-    },
-    {
       "Feature": "SmoothedRisk_avg",
-      "Importance": 0.032188449054956436
+      "Importance": 0.2719613313674927
     },
     {
       "Feature": "T1078_sum",
-      "Importance": 0.019660709425807
+      "Importance": 0.1906859278678894
     },
     {
-      "Feature": "ThreatFamily_freq_mean",
-      "Importance": 0.011508062481880188
+      "Feature": "EvidenceRole_Related_sum",
+      "Importance": 0.05201931297779083
+    },
+    {
+      "Feature": "Roles_freq_mean",
+      "Importance": 0.042778074741363525
+    },
+    {
+      "Feature": "EntityType_freq_mean",
+      "Importance": 0.036946263164281845
     },
     {
       "Feature": "GeoLoc_freq_avg",
-      "Importance": 0.009899967350065708
+      "Importance": 0.03618908300995827
     },
     {
-      "Feature": "LastVerdict_freq_mean",
-      "Importance": 0.009739129804074764
+      "Feature": "NumEvidences",
+      "Importance": 0.028858119621872902
     },
     {
-      "Feature": "AntispamDirection_freq_mean",
-      "Importance": 0.004800332244485617
+      "Feature": "SuspicionLevel_Missing_sum",
+      "Importance": 0.028046458959579468
+    },
+    {
+      "Feature": "Category_freq_mean",
+      "Importance": 0.0225333534181118
+    },
+    {
+      "Feature": "SuspicionLevel_Suspicious_sum",
+      "Importance": 0.020774582400918007
     }
   ],
   "note": "Validation set (20% of train) used for eval_set monitoring. Test set used only for final evaluation."

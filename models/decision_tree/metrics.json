@@ -1,6 +1,6 @@
 {
   "model_name": "DecisionTree",
-  "timestamp": "2026-01-09T17:50:05.236114",
+  "timestamp": "2026-01-10T12:14:23.437462",
   "dataset_version": "processed_v3",
   "test_accuracy": 0.7830787623170542,
   "test_precision": 0.49369442391589385,
@@ -45,27 +45,27 @@
   "top_10_features": [
     {
       "Feature": "SmoothedRisk_avg",
-      "Importance": 0.7385722451252975
+      "Importance": 0.7385722451252973
     },
     {
       "Feature": "GeoLoc_freq_avg",
-      "Importance": 0.0673509504262842
+      "Importance": 0.06735095042628418
     },
     {
       "Feature": "EvidenceRole_Related_sum",
-      "Importance": 0.05474862591734006
+      "Importance": 0.0547486259173401
     },
     {
       "Feature": "T1078_sum",
-      "Importance": 0.0532500327184246
+      "Importance": 0.05325003271842465
     },
     {
       "Feature": "EntityType_freq_mean",
-      "Importance": 0.027782913507923366
+      "Importance": 0.02778291350792338
     },
     {
       "Feature": "Category_freq_mean",
-      "Importance": 0.014881717274827457
+      "Importance": 0.014881717274827453
     },
     {
       "Feature": "Duration_seconds",
@@ -73,7 +73,7 @@
     },
     {
       "Feature": "NumEvidences",
-      "Importance": 0.006024400792222531
+      "Importance": 0.006024400792222533
     },
     {
       "Feature": "AntispamDirection_freq_mean",
@@ -81,7 +81,7 @@
     },
     {
       "Feature": "weekday_get_mode",
-      "Importance": 0.00438903250604032
+      "Importance": 0.0043890325060403305
     }
   ]
 }
