@@ -16,7 +16,7 @@
 [![License](https://img.shields.io/badge/MIT-green?style=for-the-badge)](LICENSE)
 
 <p align="center">
-<img src="docs\public\rdm1.png" alt="DDE" width="60%">
+<img src="docs\public\rdm1.png" alt="DDE" width="100%">
 </p>
 
 
