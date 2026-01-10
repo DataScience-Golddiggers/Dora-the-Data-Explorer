@@ -24,9 +24,9 @@ Binary cybersecurity incident classification using Microsoft's **GUIDE dataset**
 
 ## 🎯 Performance
 
-| Model | Accuracy | Precision | Recall | F1 Score (TP) | ROC AUC |
+| Model | Accuracy | Precision | Recall | F1 Score | ROC AUC |
 |-------|----------|-----------|--------|---------------|---------|
-| **XGBoost v2** | **0.8019** | **0.8274** | **0.7888** | **0.8076** | **0.9061** |
+| **XGBoost** | **0.8019** | **0.8274** | **0.7888** | **0.8076** | **0.9061** |
 | Random Forest v2 | 0.7919 | 0.8252 | 0.7681 | 0.7956 | 0.8992 |
 | Decision Tree | 0.7868 | 0.8077 | 0.7819 | 0.7946 | 0.8854 |
 | MLP (Sklearn) | 0.7679 | 0.8101 | 0.7311 | 0.7686 | 0.8720 |
