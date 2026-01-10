@@ -117,12 +117,7 @@ dove α = 5 (prior weight)
 - Dataset molto grande (>1M incidenti) - non abbiamo bisogno di dati sintetici
 - Computazionalmente più efficiente
 - Evita il rischio di overfitting su campioni sintetici
-
-### Validation Set: Distribuzione Reale
-
-**Importante:** Il validation set DEVE mantenere la distribuzione reale per stimare le performance vere del modello.
-
-Usiamo `val_final_imbalanced.csv` (distribuzione originale), NON la versione bilanciata.
+- Informazione realistica
 
 ---
 
@@ -173,7 +168,7 @@ Il training loop PyTorch implementa:
 
 **Perché F1?**
 - Bilancia Precision e Recall
-- Più informativo dell'accuracy su dataset sbilanciati
+- Più informativo dell'accuracy su dataset  (anche se in questo caso l'effetto è stato mitigato)
 - Rilevante per il dominio: vogliamo sia alta detection (recall) che pochi falsi allarmi (precision)
 
 ### Metriche Secondarie
@@ -198,15 +193,6 @@ Tutti gli esperimenti usano `random_state=42` per:
 - `data/processed_final/feature_mappings.pkl`: Mappe di encoding per inferenza
 - `models/*/model.json` o `model.pth`: Pesi dei modelli salvati
 - `models/*/metrics.json`: Metriche finali
-
----
-
-## 8. Limitazioni Note
-
-1. **Classificazione binaria:** Non distingue tra BenignPositive e FalsePositive
-2. **Feature ad alta cardinalità:** `FileName_Freq`, `IpAddress_Freq`, `Url_Freq` contribuiscono poco
-3. **Temporal leakage potenziale:** Non abbiamo verificato se esistono pattern temporali (es. incidenti futuri usati per predire passati)
-4. **Generalizzazione:** Il modello è addestrato su dati Microsoft, potrebbe non generalizzare ad altri ambienti
 
 ---
 
