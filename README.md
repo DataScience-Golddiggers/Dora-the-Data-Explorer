@@ -48,16 +48,11 @@ notebook/          # All analysis & modeling code (PRIMARY LOCATION)
 └── tests/                       # Model-specific development & tests
 
 models/            # Trained models & metrics (Jan 2026 Revision)
-├── xgboost_v2/           # model.pkl, metrics.json, importance
-├── random_forest_v2/
-├── decision_tree/
-└── mlp_baseline/
 
 docs/              # Documentation
 ├── methodology.md       # Design decisions & Rationale
 ├── CHANGELOG.md         # Critical revision details
-├── PIPELINE_USAGE.md    # Preprocessing guide
-└── README_GUIDE.md      # Dataset reference
+└── Classificazione.pdf  # Technical document
 ```
 
 ## 🚀 Quick Start
@@ -96,7 +91,7 @@ docs/              # Documentation
 
 ## 📈 Model Specifications
 
-### XGBoost v2 (Best - `models/xgboost_v2/`)
+### XGBoost
 - **Parameters**: `max_depth=10`, `learning_rate=0.1`, `n_estimators=300`, `subsample=0.9`
 - **Evaluation**: 5-fold stratified CV (Best CV F1: 0.8679)
 - **Top Features** (from `feature_importance.csv`):
@@ -106,35 +101,32 @@ docs/              # Documentation
 4. `GeoLoc_freq_avg` (0.05 gain)
 5. `EntityType_freq_mean` (0.04 gain)
 
-### Random Forest v2 (`models/random_forest_v2/`)
+### Random Forest
 - `n_estimators=150`, `max_depth=20`, `min_samples_split=5`
 - F1 Score (TP): 0.7956
 
-### Decision Tree (`models/decision_tree/`)
+### Decision Tree 
 - `max_depth=15`, `min_samples_split=20`
 - F1 Score (TP): 0.7946
 
-### MLP (`models/mlp_baseline/`)
+### MLP
 - **Sklearn**: 2 hidden layers (128-64), ReLU, Early Stopping.
 - **PyTorch**: 3 layers (128-64-32), Dropout, BatchNorm (F1: 0.7651).
-- F1 Score (TP): 0.7686 (Sklearn)
+- F1 Score: 0.7686 (Sklearn)
 
 ## 🎓 Key Insights
 
-1. **Validation Strategy**: Evaluation is performed on an **imbalanced (real-world) distribution** to provide honest performance estimates.
-2. **Anti-Leakage Split**: Data is split at the **Incident level**, ensuring all evidences of a single incident stay within the same fold (Train or Val/Test).
-3. **Hyperparameter Tuning**: All models tuned using **Stratified 5-fold Cross-Validation** via `RandomizedSearchCV`.
-4. **Missing Values**:
+1. **Anti-Leakage Split**: Data is split at the **Incident level**, ensuring all evidences of a single incident stay within the same fold (Train or Val/Test).
+2. **Hyperparameter Tuning**: All models tuned using **Stratified 5-fold Cross-Validation** via `RandomizedSearchCV`.
+3. **Missing Values**:
 - `MitreTechniques` → Top 20 OHE + Count.
 - `SuspicionLevel` → `SuspicionLevel_IsMissing` indicator.
 - Use median/mode imputation or constant indicators.
 
 ## 📖 Documentation
 
-- **[PIPELINE_USAGE.md](docs/PIPELINE_USAGE.md)** - Step-by-step preprocessing guide
-- **[QUICK_START.md](docs/QUICK_START.md)** - Setup & first experiments
-- **[README_GUIDE.md](docs/README_GUIDE.md)** - GUIDE dataset reference
-- **[PIPELINE_SUMMARY.md](docs/PIPELINE_SUMMARY.md)** - Architecture overview
+- **[Classificazione.pdf](docs/Classificazione.pdf)** - Technical document about our's work
+- **[methodology.md](docs/methodology.md)** - Feature motivation and methodology adopted
 
 ## 🔍 Evaluation
 

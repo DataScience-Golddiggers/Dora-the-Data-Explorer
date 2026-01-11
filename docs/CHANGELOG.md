@@ -7,7 +7,7 @@
 
 ## Problematiche Identificate e Risolte
 
-### 1. ❌ Validation Set Bilanciato → ✅ Distribuzione Reale
+### 1. Validation Set Bilanciato → Distribuzione Reale
 
 **Problema:** Il validation set veniva sottoposto a undersampling, distorcendo la valutazione delle performance reali.
 
@@ -17,7 +17,7 @@
 
 ---
 
-### 2. ❌ Iperparametri Arbitrari → ✅ Cross-Validation
+### 2. Iperparametri Arbitrari → Cross-Validation
 
 **Problema:** Gli iperparametri erano scelti senza giustificazione (es. `max_depth=10`, `n_estimators=100`).
 
@@ -31,7 +31,7 @@
 
 ---
 
-### 3. ❌ MLP senza Early Stopping → ✅ Training Loop Completo
+### 3. MLP senza Early Stopping → Training Loop Completo
 
 **Problema:** Il training PyTorch non monitorava la validation loss, rischiando overfitting.
 
@@ -45,7 +45,7 @@
 
 ---
 
-### 4. ❌ Mancanza di Documentazione → ✅ docs/methodology.md
+### 4. Mancanza di Documentazione → docs/methodology.md
 
 **Problema:** Le scelte progettuali non erano giustificate.
 
@@ -59,7 +59,7 @@
 
 ---
 
-### 5. ❌ Nessuna Analisi Multicollinearità → ✅ Sezione Aggiunta
+### 5. Nessuna Analisi Multicollinearità → Sezione Aggiunta
 
 **Problema:** Non veniva verificata la ridondanza tra feature correlate.
 
@@ -74,14 +74,14 @@
 
 | File | Modifiche |
 |------|-----------|
-| `notebook/15-Model_Training_and_Comparison.ipynb` | CV tuning, validation corretto, MLP migliorato |
-| `notebook/14-FeatureEngineering_Pipeline.ipynb` | Analisi multicollinearità |
+| `notebook/4-Model_Training_and_Comparison.ipynb` | CV tuning, validation corretto, MLP migliorato |
+| `notebook/3-FeatureEngineering_Pipeline.ipynb` | Analisi multicollinearità |
 | `docs/methodology.md` | **Nuovo** - Documentazione metodologica |
 | `docs/CHANGELOG.md` | **Nuovo** - Questo file |
 
 ---
 
-## Struttura Notebook 15 Aggiornata
+## Struttura Notebook 4 Aggiornata
 
 1. Caricamento e Preparazione Dati
 2. Hyperparameter Tuning con Cross-Validation *(nuovo)*
@@ -96,7 +96,7 @@
 
 ## Output Generati
 
-Dopo l'esecuzione del notebook 15, vengono salvati:
+Dopo l'esecuzione del notebook 4, vengono salvati:
 
 ```
 models/
@@ -114,6 +114,5 @@ models/
 ## Miglioramenti Futuri Suggeriti
 
 1. **Ablation Study**: Testare l'impatto della rimozione di gruppi di feature
-2. **Calibration Plots**: Verificare se le probabilità predette sono calibrate
-3. **Learning Curves**: Analizzare se servono più dati
-4. **Classificazione Ternaria**: Aggiungere sezione opzionale con 3 classi
+2. **Learning Curves**: Analizzare se servono più dati
+3. **Classificazione Ternaria**: Aggiungere sezione opzionale con 3 classi per la challenge

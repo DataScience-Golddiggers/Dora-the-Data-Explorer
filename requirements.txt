@@ -11,10 +11,7 @@ xgboost>=1.7.0
 # Random Forest is included in scikit-learn
 
 # Deep Learning (for MLP)
---extra-index-url https://download.pytorch.org/whl/cu124  #comment this line if not using CUDA
 torch
-
-
 
 # Data Visualization
 matplotlib>=3.6.0
